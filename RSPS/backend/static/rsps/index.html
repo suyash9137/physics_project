@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSPS Exam View</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #F5F2F0;
+            --bg-secondary: #EAE1DA;
+            --text-main: #2C2C2C;
+            --accent-vibrant: #D96A4D;
+            --accent-forest: #2A5A4A;
+            --accent-mustard: #E4A93C;
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-primary); color: var(--text-main); max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        h1 { font-family: 'Outfit', sans-serif; color: var(--accent-forest); margin-bottom: 30px; }
+        .alert { background: var(--bg-secondary); color: var(--text-main); padding: 20px; border-radius: 12px; margin-bottom: 30px; border-left: 4px solid var(--accent-vibrant); font-size: 0.95rem; }
+        .camera-container { width: 100%; aspect-ratio: 16/9; background: #000; margin: 20px 0; border-radius: 16px; overflow: hidden; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.15);}
+        video { width: 100%; height: 100%; object-fit: cover; }
+        .controls { display: flex; gap: 15px; margin-top: 20px; }
+        button { font-family: 'Outfit', sans-serif; font-weight: 600; cursor: pointer; border: none; padding: 12px 24px; border-radius: 50px; transition: all 0.3s ease; }
+        #start-btn { background: var(--accent-forest); color: white; }
+        #start-btn:hover { background: #1f4236; transform: translateY(-2px); }
+        #end-btn { background: var(--bg-secondary); color: var(--text-main); }
+        #end-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+        #end-btn:not(:disabled):hover { background: #dcd0c6; transform: translateY(-2px); }
+        .status { padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; }
+        .status.active { background: #d4edda; color: #155724; }
+        .status.error { background: #f8d7da; color: #721c24; }
+        #audio-level { width: 100%; height: 12px; background: var(--bg-secondary); margin-top: 10px; border-radius: 6px; overflow: hidden;}
+        #audio-bar { height: 100%; background: var(--accent-mustard); width: 0%; border-radius: 6px; transition: width 0.1s; }
+        .ui-overlay { position: absolute; top: 15px; right: 15px; background: rgba(217, 106, 77, 0.9); color: white; padding: 6px 15px; border-radius: 20px; font-weight: bold; font-size: 13px; font-family: 'Outfit', sans-serif; letter-spacing: 0.5px; backdrop-filter: blur(5px);}
+        #log { border-radius: 12px; background: white; border: 1px solid var(--bg-secondary); box-shadow: inset 0 2px 5px rgba(0,0,0,0.02);}
+    </style>
+</head>
+<body>
+    <h1>Exam Portal - RSPS</h1>
+    
+    <div class="alert">
+        <strong>Privacy Notice:</strong> You will not be recorded continuously. We capture random 5-10 second clips during your exam, or if a loud noise is detected. All data is encrypted and automatically deleted after 30 days.<br><br>
+        <strong>Security Requirement:</strong> The exam must be taken in Fullscreen Mode. Exiting fullscreen at any time will result in immediate termination of the exam.
+    </div>
+
+    <div>
+        System Status: <span id="sys-status" class="status error">Waiting for permissions...</span>
+    </div>
+
+    <div class="camera-container">
+        <video id="webcam" autoplay muted playsinline></video>
+        <div class="ui-overlay" id="recording-indicator" style="display: none; background: rgba(255,0,0,0.8);">🔴 Recording...</div>
+    </div>
+    
+    <div style="margin-bottom: 5px; font-size: 14px; color: #666;">Local Audio Level (Decibels):</div>
+    <div id="audio-level"><div id="audio-bar"></div></div>
+
+    <div class="controls">
+        <button id="start-btn">Start Exam & Grant Permissions</button>
+        <button id="end-btn" disabled>End Exam</button>
+    </div>
+
+    <!-- Hidden div to hold log output without showing to the user -->
+    <div id="log" style="display: none;"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

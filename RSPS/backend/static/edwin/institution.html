@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Edwin Group - Institution Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: var(--spacing-xl) 5%;
+        }
+        .feature-item {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--accent-vibrant);
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">The Edwin Group | Institutions</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Back to Home</a></li>
+        </ul>
+    </nav>
+
+    <!-- Content -->
+    <section class="hero slide-in" style="min-height: 50vh; padding-top: 150px; background-color: var(--bg-secondary);">
+        <div class="hero-content">
+            <h1>Enterprise <span class="highlight">Security</span> & Scale</h1>
+            <p>Our AI-powered Random-Sample Proctoring System is built to scale across global institutions without breaking bandwidth budgets.</p>
+        </div>
+    </section>
+
+    <div class="features-grid fade-in">
+        <div class="feature-item">
+            <div class="feature-icon">🔒</div>
+            <h3>Military-Grade Encryption</h3>
+            <p>All captured media chunks are AES-256 encrypted in transit and at rest. Data is strictly isolated per institutional tenant.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">📉</div>
+            <h3>Bandwidth Optimization</h3>
+            <p>By capturing 5-second random clips rather than continuous streaming, RSPS caps data uploads to just 15-20MB per student per hour—ideal for low-bandwidth regions.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">🗑️</div>
+            <h3>Automated Compliance</h3>
+            <p>To adhere to GDPR and global privacy standards, our security pipelines automatically wipe all proctoring media records after 30 days.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">🤖</div>
+            <h3>AI-Powered Oversight</h3>
+            <p>Librosa Voice Activity Detection and MediaPipe Head Pose Estimation run intelligently to identify anomalous behavior without human intervention.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h2>The Edwin Group</h2>
+            <p>&copy; 2026 The Edwin Group. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>

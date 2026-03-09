@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Edwin Group - Student Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .demo-container {
+            margin: var(--spacing-xl) 5%;
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .demo-frame {
+            width: 100%;
+            height: 800px;
+            border: 2px solid var(--bg-secondary);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">The Edwin Group | Students</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Back to Home</a></li>
+        </ul>
+    </nav>
+
+    <!-- Content -->
+    <section class="hero slide-in" style="min-height: 50vh; padding-top: 150px;">
+        <div class="hero-content">
+            <h1>Privacy-First <span class="highlight">Exams</span></h1>
+            <p>Our intelligent system ensures academic integrity without invasive, continuous surveillance. Try the student experience below.</p>
+        </div>
+    </section>
+
+    <!-- External Demo Embedding -->
+    <div class="demo-container fade-in">
+        <h2>Live Student Portal Demo</h2>
+        <p style="margin-bottom: 20px; color: var(--text-muted);">This is a live deployment of the RSPS frontend software running on our localized servers.</p>
+        
+        <iframe src="/rsps/index.html" class="demo-frame" title="Student Exam View Demo"></iframe>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h2>The Edwin Group</h2>
+            <p>&copy; 2026 The Edwin Group. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>

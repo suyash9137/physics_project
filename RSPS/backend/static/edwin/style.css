@@ -1,0 +1,289 @@
+/* ==============================
+   The Edwin Group - Brand Tokens
+   ============================== */
+:root {
+    /* Color Palette */
+    --bg-primary: #F5F2F0; /* Soft Beige */
+    --bg-secondary: #EAE1DA; /* Warm Sand */
+    --text-main: #2C2C2C;
+    --text-muted: #5A5A5A;
+    --accent-vibrant: #D96A4D; /* Terracotta */
+    --accent-forest: #2A5A4A; /* Forest Green */
+    --accent-mustard: #E4A93C; /* Mustard Yellow */
+    
+    /* Typography */
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Spacing & Utilities */
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
+    --border-radius: 16px;
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ==============================
+   Base Styles
+   ============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-main);
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); }
+h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+a { text-decoration: none; color: inherit; }
+.highlight { color: var(--accent-vibrant); }
+
+/* ==============================
+   Components
+   ============================== */
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--accent-forest);
+    color: white;
+    box-shadow: 0 10px 20px rgba(42, 90, 74, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(42, 90, 74, 0.3);
+    background-color: #1f4236;
+}
+
+.link {
+    color: var(--accent-vibrant);
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+.link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--accent-vibrant);
+    transition: var(--transition-smooth);
+}
+
+.link:hover::after { width: 100%; }
+
+/* Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: var(--transition-smooth);
+    background: rgba(245, 242, 240, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.navbar .logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-forest);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links a {
+    font-weight: 500;
+    transition: var(--transition-smooth);
+}
+
+.nav-links a:hover { color: var(--accent-vibrant); }
+
+/* ==============================
+   Layout & Sections
+   ============================== */
+section { padding: var(--spacing-xl) 5%; }
+
+/* Hero */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 100px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    padding-right: var(--spacing-lg);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin: var(--spacing-md) 0;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    border-radius: var(--border-radius);
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));
+}
+
+/* Services / Modular Grid */
+.grid-domain {
+    background-color: var(--bg-secondary);
+    border-radius: 40px;
+    margin: 2rem 5%;
+    padding: var(--spacing-xl) 5%;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+/* Cards (Interactive) */
+.card {
+    background: var(--bg-primary);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 4px;
+    background: var(--accent-mustard);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.card:hover::before { transform: scaleX(1); }
+
+.card-image {
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+}
+
+.card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+/* Footer */
+footer {
+    background-color: var(--accent-forest);
+    color: white;
+    padding: var(--spacing-lg) 5%;
+    text-align: center;
+}
+
+/* ==============================
+   Animations & Micro-interactions
+   ============================== */
+.hover-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Scroll Reveals */
+.fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+.slide-in { opacity: 0; transform: translateX(-50px); transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.slide-in.visible { opacity: 1; transform: translateX(0); }
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .hero { flex-direction: column; text-align: center; padding-top: 150px; }
+    .hero-content { padding-right: 0; margin-bottom: 3rem; }
+    .nav-links { display: none; } /* Simple collapse for demo */
+}

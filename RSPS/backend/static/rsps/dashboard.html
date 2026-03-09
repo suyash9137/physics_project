@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSPS Examiner Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #F5F2F0;
+            --bg-secondary: #EAE1DA;
+            --text-main: #2C2C2C;
+            --accent-vibrant: #D96A4D;
+            --accent-forest: #2A5A4A;
+            --border-radius: 16px;
+        }
+        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--bg-primary); color: var(--text-main); }
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; }
+        .header { background: var(--bg-secondary); color: var(--accent-forest); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid rgba(0,0,0,0.05);}
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 5%; }
+        .student-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; margin-top: 30px;}
+        .card { background: white; border-radius: var(--border-radius); box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 30px; display: flex; flex-direction: column; transition: transform 0.3s ease; border-top: 4px solid var(--accent-mustard); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+        .trust-score { font-size: 28px; font-family: 'Outfit', sans-serif; font-weight: 700; margin: 15px 0; }
+        .score-high { color: var(--accent-forest); }
+        .score-med { color: #E4A93C; }
+        .score-low { color: var(--accent-vibrant); }
+        .btn { background: var(--accent-forest); font-family: 'Outfit', sans-serif; font-weight: 600; color: white; border: none; padding: 12px 20px; border-radius: 50px; cursor: pointer; margin-top: auto; transition: all 0.3s ease;}
+        .btn:hover { background: #1f4236; transform: translateY(-2px); }
+        .flag-list { font-size: 14px; margin: 20px 0; color: #5A5A5A; }
+        .flag-item { border-left: 3px solid var(--accent-vibrant); padding-left: 15px; margin-bottom: 12px; background: #fffcfb; padding: 10px 10px 10px 15px; border-radius: 0 8px 8px 0;}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>RSPS | Examiner Dashboard</h2>
+        <div>Exam: CS101 Midterm</div>
+    </div>
+    
+    <div class="container">
+        <h3>Live Review Queue</h3>
+        <p>Trust Scores calculated from accumulated VAD and Face Count anomalies.</p>
+        
+        <div class="student-grid" id="student-grid">
+            <!-- Populated via JS -->
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Edwin Group - Teacher Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .demo-container {
+            margin: var(--spacing-xl) 5%;
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .demo-frame {
+            width: 100%;
+            height: 800px;
+            border: 2px solid var(--bg-secondary);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">The Edwin Group | Teachers</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Back to Home</a></li>
+        </ul>
+    </nav>
+
+    <!-- Content -->
+    <section class="hero slide-in" style="min-height: 50vh; padding-top: 150px;">
+        <div class="hero-content">
+            <h1>Actionable <span class="highlight">Insights</span></h1>
+            <p>Don't waste time watching hours of footage. Our AI flags key moments, calculating trust scores instantly.</p>
+        </div>
+    </section>
+
+    <!-- External Demo Embedding -->
+    <div class="demo-container fade-in">
+        <h2>Live Examiner Dashboard Demo</h2>
+        <p style="margin-bottom: 20px; color: var(--text-muted);">Interact with our live Examiner Dashboard mock framework to see flags and trust score aggregations in action.</p>
+        
+        <iframe src="/rsps/dashboard.html" class="demo-frame" title="Examiner Dashboard Demo"></iframe>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h2>The Edwin Group</h2>
+            <p>&copy; 2026 The Edwin Group. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
