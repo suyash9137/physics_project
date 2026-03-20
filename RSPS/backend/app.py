@@ -15,11 +15,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Mount Unified Frontends
-app.mount("/rsps", StaticFiles(directory="static/rsps", html=True), name="rsps")
-app.mount("/edwin", StaticFiles(directory="static/edwin", html=True), name="edwin")
-# We also want the root to default to The Edwin Group landing page
-app.mount("/", StaticFiles(directory="static/edwin", html=True), name="root")
 
 # In-memory session tracking
 sessions = {}
@@ -63,6 +58,12 @@ async def upload_media(session_id: str, file: UploadFile = File(...), trigger_ty
 @app.get("/api/health")
 async def health_check():
     return {"status": "healthy"}
+
+# Mount Unified Frontends
+app.mount("/rsps", StaticFiles(directory="static/rsps", html=True), name="rsps")
+app.mount("/smi", StaticFiles(directory="static/smi_agent", html=True), name="smi")
+# We also want the root to default to SMI Agent landing page
+app.mount("/", StaticFiles(directory="static/smi_agent", html=True), name="root")
 
 import os
 

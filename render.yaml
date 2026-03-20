@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: smi-agent-unified
+    env: python
+    buildCommand: "pip install -r RSPS/backend/requirements.txt"
+    startCommand: "cd RSPS/backend && uvicorn app:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
